@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Greeting Card Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.pexels.com/photos/235985/pexels-photo-235985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=21');
+            background-size: cover; /* Adjusts the background image to cover the entire container */
+            background-repeat: no-repeat; /* Prevents the background image from repeating */
+            background-position: center center; /* Centers the background image */
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        main {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            margin: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            max-width: 200px; /* Adjust the value as needed */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        form {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow to the text */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center; /* Center the text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow to the text */
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position:relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 10%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Greeting Cards</div>
+            <div>
+                <a href="#">Home</a>
+                <a href="#">Products</a>
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+        <div>
+            <h1>Customized Greeting Card Service</h1>
+            <p>Express your feelings with a personalized touch! Choose a card, provide details, and place your order.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <img src="https://images.pexels.com/photos/4544713/pexels-photo-4544713.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Card 1">
+            <p>Card 1 - $10.99</p>
+            <button onclick="showForm('card1')">Order Now</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.pexels.com/photos/4544723/pexels-photo-4544723.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Card 2">
+            <p>Card 2 - $12.99</p>
+            <button onclick="showForm('card2')">Order Now</button>
+        </div>
+
+        
+    </main>
+
+    <div id="orderForm" style="display: none;">
+        <h2>Place Your Order</h2>
+        <form action="submit_order.php" method="post">
+            <input type="hidden" id="selectedCard" name="selectedCard" value="">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="message">Personalized Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+            <button type="submit">Submit Order</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Customized Greeting Card Service</p>
+    </footer>
+
+    <script>
+        function showForm(cardId) {
+            document.getElementById('selectedCard').value = cardId;
+            document.getElementById('orderForm').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
